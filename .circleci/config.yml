@@ -7,10 +7,10 @@ jobs:
       enabled: true
     steps :
       -run:
-        name: Test.
-        command: ssh -i "circle.pem" ubuntu@ec2-13-235-68-44.ap-south-1.compute.amazonaws.com 'echo  "welcome"  ';
-version : 2.1
-workflow:
+        name: Test
+        command: ssh -i "circle.pem" ubuntu@ec2-13-235-68-44.ap-south-1.compute.amazonaws.com 'echo  "welcome"  ' ;
+version: 2.1
+workflows:
   build_and_deploy:
     jobs:
       -Test:
@@ -18,8 +18,8 @@ workflow:
           branches:
             only: master
 build_and_deploy-qa:
-  jobs:
-    -Test:
-      filters:
-        branches:
-          only: master 
+   jobs:
+     -Test:
+        filters:
+          branches:
+            only: master
